@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+class SeaBattleScreen extends StatefulWidget {
+  const SeaBattleScreen({Key? key}) : super(key: key);
+
+  @override
+  _SeaBattleScreenState createState() => _SeaBattleScreenState();
+}
+
+class _SeaBattleScreenState extends State<SeaBattleScreen> {
+  static const int gridSize = 10;
+
+  // Статус клетки
+  // 0 - пустая, 1 - корабль, 2 - промах, 3 - попадание
+  List<List<int>> playerGrid = List.generate(
+      gridSize, (_) => List.generate(gridSize, (_) => 0));
+  List<List<int>> enemyGrid = List.generate(
+      gridSize, (_) => List.generate(gridSize, (_) => 0));
+
+  // Пример: размещение кораблей для игрока
+  @override
+  void initState() {
+    super.initState();
+    _placePlayerShips();
+  }
+
+  void _placePlayerShips() {
+    // Просто пример: ставим один корабль в центр
+    setState(() {
+      playerGrid[4][4] = 1;
+      playerGrid[4][5] 
